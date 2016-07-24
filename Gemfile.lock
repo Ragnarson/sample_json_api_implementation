@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/apotonick/roar.git
+  revision: 5d3c2f15552b09a6b5b01ab87a6ba6df3c16e744
+  specs:
+    roar (1.0.3)
+      representable (>= 2.4.0, < 3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,6 +49,8 @@ GEM
     builder (3.2.2)
     byebug (9.0.5)
     concurrent-ruby (1.0.2)
+    declarative (0.0.8)
+      uber (>= 0.0.15)
     erubis (2.7.0)
     ffi (1.9.14)
     globalid (0.3.6)
@@ -60,6 +69,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -96,6 +106,9 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    representable (3.0.0)
+      declarative (~> 0.0.5)
+      uber (~> 0.0.15)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -112,6 +125,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.15)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -122,8 +136,10 @@ PLATFORMS
 DEPENDENCIES
   byebug
   listen (~> 3.0.5)
+  multi_json
   puma (~> 3.0)
   rails (~> 5.0.0)
+  roar!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
