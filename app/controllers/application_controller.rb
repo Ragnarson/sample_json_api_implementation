@@ -2,14 +2,7 @@ class ApplicationController < ActionController::API
   before_action :set_content_type, :check_accept_header
 
   rescue_from ActiveRecord::RecordNotFound do
-    render json: {
-      errors: [
-        {
-          status: 404,
-          details: "Not Found"
-        }
-      ]
-    }
+    render json: JSONAPI::Serializer.serialize_errors([{ status: "404", "detail": "Not Found" }])
   end
 
   private
@@ -20,14 +13,7 @@ class ApplicationController < ActionController::API
 
   def check_accept_header
     unless request.headers["Accept"] == "application/vnd.api+json"
-      return render json: {
-        errors: [
-          {
-            status: 406,
-            details: "Not Acceptable"
-          }
-        ]
-      }
+      return render json: JSONAPI::Serializer.serialize_errors([{ status: "406", "detail": "Not Acceptable" }])
     end
   end
 end
