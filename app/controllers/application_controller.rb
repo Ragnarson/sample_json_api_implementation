@@ -30,4 +30,14 @@ class ApplicationController < ActionController::API
       }
     end
   end
+
+  def yaks
+    Yaks.new do
+      default_format :json_api
+      map_to_primitive Date, Time, DateTime, ActiveSupport::TimeWithZone, &:iso8601
+      json_serializer do |data|
+        MultiJson.dump(data, pretty: true)
+      end
+    end
+  end
 end
